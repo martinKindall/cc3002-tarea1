@@ -1,6 +1,12 @@
 package tests;
+package tarea1;
 
 import org.junit.*;
+import tarea1.Archer;
+import tarea1.Attackable;
+import tarea1.Attacker;
+import tarea1.Barracks;
+
 import static org.junit.Assert.*;
 
 public class BarracksTest {
@@ -19,10 +25,10 @@ public class BarracksTest {
     public void receiveDamageFromArcher(){
     	int currentLife = barracks.currentLife();
     	archer.attack(barracks);
-    	assertTrue(barracks.currentLife(), currentLife - archer.attackPts * 0.7);
+    	assertTrue(barracks.currentLife(), currentLife - archer.attackPts() * 0.7);
     	
     	currentLife = barracks.currentLife();
     	archer.attack(barracks);
-    	assertTrue(barracks.currentLife(), currentLife - archer.attackPts * 0.7);
+    	assertTrue(barracks.currentLife(), currentLife - archer.attackPts() * 0.7);
     }
 }
