@@ -10,4 +10,7 @@ public class Barracks extends PasiveEntity {
     public void receiveDmgFromArcher(Archer archer) {
         super.reduceHitpoints((int)(archer.attackPts() * 0.7));
     }
+
+    @Override
+    public void receiveDmgFromMonk(Monk monk) {}
 }
