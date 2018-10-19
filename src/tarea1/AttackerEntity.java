@@ -17,7 +17,7 @@ public abstract class AttackerEntity extends AttackableEntity implements Attacke
 
     @Override
     protected void die(){
-        super.state = new Dead();
+        super.die();
         state = new DeadAttacker();
     }
 

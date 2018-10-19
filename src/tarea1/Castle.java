@@ -1,26 +1,27 @@
 package tarea1;
 
-public class Monk extends Unit {
-    public Monk(int hitpoints, int attackPts){
+public class Castle extends AttackerBuilding {
+    public Castle(int hitpoints, int attackPts){
         super(hitpoints, attackPts);
     }
 
     @Override
     public void myAttack(Attackable attackable){
-        attackable.receiveDmgFromMonk(this);
+        attackable.receiveDmgFromCastle(this);
     }
 
     @Override
     public void receiveDmgFromArcher(Archer archer) {
-        super.die();
+        super.reduceHitpoints((int)(archer.attackPts() * 0.1));
     }
 
     @Override
     public void receiveDmgFromVillager(Villager villager) {
+        super.increaseHitpoints((int) (villager.attackPts() * 0.3), 1);
     }
 
     @Override
     public void receiveDmgFromCastle(Castle castle) {
-        super.die();
+        super.reduceHitpoints((int) (castle.attackPts() * 0.1));
     }
 }

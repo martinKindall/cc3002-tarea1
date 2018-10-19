@@ -38,11 +38,17 @@ public abstract class AttackableEntity implements Attackable{
         }
     }
 
+    @Override
+    public void receiveDmgFromMonk(Monk monk) {
+
+    }
+
     public boolean isAlive(){
         return this.state.isAlive();
     }
 
     protected void die(){
+        hitpoints = 0;
         state = new Dead();
     }
 
