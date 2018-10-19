@@ -1,24 +1,23 @@
 package tarea1;
 
-public class ArcherUnit extends Unit {
-
-    public ArcherUnit(int hitpoints, int attackPts){
+public class CavalryUnit extends Unit {
+    public CavalryUnit(int hitpoints, int attackPts){
         super(hitpoints, attackPts);
     }
 
     @Override
     public void myAttack(Attackable attackable){
-        attackable.receiveDmgFromArcher(this);
+        attackable.receiveDmgFromCavalry(this);
     }
 
     @Override
     public void receiveDmgFromArcher(ArcherUnit archer) {
-        super.reduceHitpoints((int)(archer.attackPts() * 1.2));
+        super.reduceHitpoints((int)(archer.attackPts() * 1.0));
     }
 
     @Override
     public void receiveDmgFromVillager(Villager villager) {
-        super.reduceHitpoints((int)(villager.attackPts() * 1.0));
+        super.reduceHitpoints((int)(villager.attackPts() * 0.5));
     }
 
     @Override
@@ -28,7 +27,7 @@ public class ArcherUnit extends Unit {
 
     @Override
     public void receiveDmgFromSiege(SiegeUnit siege) {
-        super.reduceHitpoints((int) (siege.attackPts() * 1.5));
+        super.reduceHitpoints((int) (siege.attackPts() * 1.0));
     }
 
     @Override
@@ -38,6 +37,6 @@ public class ArcherUnit extends Unit {
 
     @Override
     public void receiveDmgFromCavalry(CavalryUnit cavalry) {
-        super.reduceHitpoints((int) (cavalry.attackPts() * 1.5));
+        super.reduceHitpoints((int) (cavalry.attackPts() * 1.0));
     }
 }

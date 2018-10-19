@@ -9,4 +9,5 @@ public interface Attackable {
     public void receiveDmgFromCastle(Castle castle);
     public void receiveDmgFromSiege(SiegeUnit siege);
     public void receiveDmgFromInfantry(InfantryUnit infantry);
+    public void receiveDmgFromCavalry(CavalryUnit cavalry);
 }

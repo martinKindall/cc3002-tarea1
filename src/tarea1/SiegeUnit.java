@@ -29,4 +29,9 @@ public class SiegeUnit extends RepairableUnit{
     public void receiveDmgFromInfantry(InfantryUnit infantry) {
         super.reduceHitpoints((int) (infantry.attackPts() * 1.2));
     }
+
+    @Override
+    public void receiveDmgFromCavalry(CavalryUnit cavalry) {
+        super.reduceHitpoints((int) (cavalry.attackPts() * 1.2));
+    }
 }

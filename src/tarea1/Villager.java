@@ -34,4 +34,9 @@ public class Villager extends Unit {
     public void receiveDmgFromInfantry(InfantryUnit infantry) {
         super.reduceHitpoints((int) (infantry.attackPts() * 1.5));
     }
+
+    @Override
+    public void receiveDmgFromCavalry(CavalryUnit cavalry) {
+        super.reduceHitpoints((int) (cavalry.attackPts() * 1.5));
+    }
 }

@@ -33,4 +33,9 @@ public class Monk extends Unit {
     public void receiveDmgFromInfantry(InfantryUnit infantry) {
         super.die();
     }
+
+    @Override
+    public void receiveDmgFromCavalry(CavalryUnit cavalry) {
+        super.die();
+    }
 }

@@ -25,4 +25,9 @@ public class Barracks extends Building {
     public void receiveDmgFromInfantry(InfantryUnit infantry) {
         super.reduceHitpoints((int) (infantry.attackPts() * 0.7));
     }
+
+    @Override
+    public void receiveDmgFromCavalry(CavalryUnit cavalry) {
+        super.reduceHitpoints((int) (cavalry.attackPts() * 0.7));
+    }
 }
