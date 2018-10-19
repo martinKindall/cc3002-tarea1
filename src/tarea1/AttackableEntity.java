@@ -23,10 +23,12 @@ public abstract class AttackableEntity implements Attackable{
     }
 
     protected void increaseHitpoints(int hitpoints, int multiplier){
-        this.hitpoints += hitpoints;
+        if (isAlive()){
+            this.hitpoints += hitpoints;
 
-        if (this.hitpoints > multiplier*this.maxHitpoints){
-            this.hitpoints = multiplier*this.maxHitpoints;
+            if (this.hitpoints > multiplier*this.maxHitpoints){
+                this.hitpoints = multiplier*this.maxHitpoints;
+            }
         }
     }
 

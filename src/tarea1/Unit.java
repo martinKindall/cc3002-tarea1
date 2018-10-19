@@ -7,8 +7,6 @@ public abstract class Unit extends AttackerEntity {
 
     @Override
     public void receiveDmgFromMonk(Monk monk) {
-        if (super.isAlive()) {
-            super.increaseHitpoints((int) (monk.attackPts() * 0.5), 2);
-        }
+        super.increaseHitpoints((int) (monk.attackPts() * 0.5), 2);
     }
 }
