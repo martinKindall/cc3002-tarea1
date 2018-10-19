@@ -19,8 +19,8 @@ public class SiegeTest {
         castle = new Castle(50, 10);
         villager = new Villager(50, 10);
         monk = new Monk(50, 10);
-        siege = new Siege(100, 10);
-        archer = new Archer(50, 10);
+        siege = new SiegeUnit(100, 10);
+        archer = new ArcherUnit(50, 10);
     }
 
 

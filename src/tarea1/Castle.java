@@ -11,7 +11,7 @@ public class Castle extends AttackerBuilding {
     }
 
     @Override
-    public void receiveDmgFromArcher(Archer archer) {
+    public void receiveDmgFromArcher(ArcherUnit archer) {
         super.reduceHitpoints((int)(archer.attackPts() * 0.1));
     }
 
@@ -26,7 +26,7 @@ public class Castle extends AttackerBuilding {
     }
 
     @Override
-    public void receiveDmgFromSiege(Siege siege) {
+    public void receiveDmgFromSiege(SiegeUnit siege) {
         super.reduceHitpoints((int) (siege.attackPts() * 2.0));
     }
 }

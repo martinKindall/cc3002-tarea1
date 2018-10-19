@@ -17,7 +17,7 @@ public class VillagerTest {
     public void setUp(){
         barracks = new Barracks(10000000);
         oldHouse = new Barracks(1);
-        archer = new Archer(50, 10);
+        archer = new ArcherUnit(50, 10);
         villager = new Villager(50, 10);
         monk = new Monk(50, 10);
     }

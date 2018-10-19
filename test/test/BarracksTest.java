@@ -13,7 +13,7 @@ public class BarracksTest {
     @Before 
     public void setUp(){
     	barracks = new Barracks(10000000);
-    	archer = new Archer(50, 10);
+    	archer = new ArcherUnit(50, 10);
     }
 
 

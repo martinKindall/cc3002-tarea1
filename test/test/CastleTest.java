@@ -16,8 +16,8 @@ public class CastleTest {
     @Before
     public void setUp(){
         castle = new Castle(10000,100);
-        archer = new Archer(50, 10);
-        robin_hood = new Archer(50, 100);
+        archer = new ArcherUnit(50, 10);
+        robin_hood = new ArcherUnit(50, 100);
         villager = new Villager(50, 10);
         monk = new Monk(50, 10);
     }

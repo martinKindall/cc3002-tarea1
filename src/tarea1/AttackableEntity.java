@@ -3,7 +3,7 @@ package tarea1;
 public abstract class AttackableEntity implements Attackable{
     private int maxHitpoints;
     protected int hitpoints;
-    protected State state;
+    private State state;
 
     public AttackableEntity(){
         hitpoints = 200;
@@ -11,7 +11,7 @@ public abstract class AttackableEntity implements Attackable{
         state = new Alive();
     }
 
-    public AttackableEntity(int hitpoints){
+    protected AttackableEntity(int hitpoints){
         this.hitpoints = hitpoints;
         this.maxHitpoints = hitpoints;
         state = new Alive();
@@ -30,7 +30,7 @@ public abstract class AttackableEntity implements Attackable{
         state.increaseHitpoints(this, hitpoints, multiplier);
     }
 
-    public void myIncreaseHitpoints(int hitpoints, int multiplier){
+    protected void myIncreaseHitpoints(int hitpoints, int multiplier){
         this.hitpoints += hitpoints;
 
         if (this.hitpoints > multiplier*this.maxHitpoints){

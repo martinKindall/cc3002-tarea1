@@ -11,7 +11,7 @@ public class Monk extends Unit {
     }
 
     @Override
-    public void receiveDmgFromArcher(Archer archer) {
+    public void receiveDmgFromArcher(ArcherUnit archer) {
         super.die();
     }
 
@@ -25,7 +25,7 @@ public class Monk extends Unit {
     }
 
     @Override
-    public void receiveDmgFromSiege(Siege siege) {
+    public void receiveDmgFromSiege(SiegeUnit siege) {
         super.die();
     }
 }

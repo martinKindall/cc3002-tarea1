@@ -7,7 +7,7 @@ public class Barracks extends Building {
     }
 
     @Override
-    public void receiveDmgFromArcher(Archer archer) {
+    public void receiveDmgFromArcher(ArcherUnit archer) {
         super.reduceHitpoints((int)(archer.attackPts() * 0.7));
     }
 
@@ -17,7 +17,7 @@ public class Barracks extends Building {
     }
 
     @Override
-    public void receiveDmgFromSiege(Siege siege) {
+    public void receiveDmgFromSiege(SiegeUnit siege) {
         super.reduceHitpoints((int) (siege.attackPts() * 2.0));
     }
 }

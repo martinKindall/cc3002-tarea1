@@ -16,7 +16,7 @@ public class Villager extends Unit {
     }
 
     @Override
-    public void receiveDmgFromArcher(Archer archer) {
+    public void receiveDmgFromArcher(ArcherUnit archer) {
         super.reduceHitpoints((int)(archer.attackPts() * 1.5));
     }
 
@@ -26,7 +26,7 @@ public class Villager extends Unit {
     }
 
     @Override
-    public void receiveDmgFromSiege(Siege siege) {
+    public void receiveDmgFromSiege(SiegeUnit siege) {
         super.reduceHitpoints((int) (siege.attackPts() * 1.5));
     }
 }

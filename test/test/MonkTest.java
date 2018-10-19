@@ -33,12 +33,12 @@ public class MonkTest {
     @Before 
     public void setUp(){
     	barracks = new Barracks(10000000);
-    	archerAlly = new Archer(50, 10);
-    	archerEnemy = new Archer(50, 10);
+    	archerAlly = new ArcherUnit(50, 10);
+    	archerEnemy = new ArcherUnit(50, 10);
     	monk = new Monk(50, 10);
         resurrecter = new Monk(50, 10);
         castle = new Castle(100, 10);
-        siege = new Siege(100, 10);
+        siege = new SiegeUnit(100, 10);
     }
 
 

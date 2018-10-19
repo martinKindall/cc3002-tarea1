@@ -1,8 +1,8 @@
 package tarea1;
 
-public class Archer extends Unit {
+public class ArcherUnit extends Unit {
 
-    public Archer(int hitpoints, int attackPts){
+    public ArcherUnit(int hitpoints, int attackPts){
         super(hitpoints, attackPts);
     }
 
@@ -12,7 +12,7 @@ public class Archer extends Unit {
     }
 
     @Override
-    public void receiveDmgFromArcher(Archer archer) {
+    public void receiveDmgFromArcher(ArcherUnit archer) {
         super.reduceHitpoints((int)(archer.attackPts() * 1.2));
     }
 
@@ -27,7 +27,7 @@ public class Archer extends Unit {
     }
 
     @Override
-    public void receiveDmgFromSiege(Siege siege) {
+    public void receiveDmgFromSiege(SiegeUnit siege) {
         super.reduceHitpoints((int) (siege.attackPts() * 1.5));
     }
 }
