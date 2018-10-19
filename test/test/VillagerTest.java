@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 public class VillagerTest {
     private Attackable barracks;
+    private Attackable oldHouse;
     private Attacker villager;
     private Attacker archer;
     private Monk monk;
@@ -15,6 +16,7 @@ public class VillagerTest {
     @Before
     public void setUp(){
         barracks = new Barracks(10000000);
+        oldHouse = new Barracks(1);
         archer = new Archer(50, 10);
         villager = new Villager(50, 10);
         monk = new Monk(50, 10);
@@ -43,5 +45,15 @@ public class VillagerTest {
         int currentLife = monk.currentLife();
         villager.attack(monk);
         assertTrue(currentLife == monk.currentLife());
+    }
+
+
+    @Test
+    public void cannotRepairDestroyed(){
+        archer.attack(oldHouse);
+        assertTrue(!oldHouse.isAlive());
+        
+        villager.attack(oldHouse);
+        assertTrue(!oldHouse.isAlive());
     }
 }
