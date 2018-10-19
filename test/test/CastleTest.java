@@ -6,45 +6,61 @@ import tarea1.*;
 import static org.junit.Assert.*;
 
 public class CastleTest {
-    private Attacker archer;
-    private Attacker robin_hood;
-    private Attacker monk;
+    private Attacker infantry;
     private Attacker villager;
-    private Attacker castle;
+    private Attacker monk;
+    private Attacker siege;
+    private Attacker archer;
+    private Attacker cavalry;
+    private Attacker castle, castleEnemy;
 
 
     @Before
     public void setUp(){
-        castle = new Castle(10000,100);
-        archer = new ArcherUnit(50, 10);
-        robin_hood = new ArcherUnit(50, 100);
+        infantry = new InfantryUnit(50, 10);
+        castle = new Castle(50, 10);
         villager = new Villager(50, 10);
         monk = new Monk(50, 10);
+        siege = new SiegeUnit(100, 10);
+        archer = new ArcherUnit(50, 10);
+        cavalry = new CavalryUnit(80, 10);
+        castle = new Castle(1000, 20);
+        castleEnemy = new Castle(1000, 20);
     }
 
+
+    @Test
+    public void receiveDmgFromInfantry(){
+        assertTrue(TestUtils.receiveDamageFrom(castle, infantry, 0.3));
+    }
 
     @Test
     public void receiveDmgFromArcher(){
-        int currentLife = castle.currentLife();
-        archer.attack(castle);
-        assertTrue(castle.currentLife() == currentLife - (int)(archer.attackPts() * 0.1));
+        assertTrue(TestUtils.receiveDamageFrom(castle, archer, 0.1));
     }
 
-
     @Test
-    public void repairedByVillager(){
-        robin_hood.attack(castle);
-        int currentLife = castle.currentLife();
-        villager.attack(castle);
-        assertTrue(castle.currentLife() == currentLife + (int)(villager.attackPts() * 0.3));
+    public void receiveDmgFromCavalry(){
+        assertTrue(TestUtils.receiveDamageFrom(castle, cavalry, 0.3));
     }
 
+    @Test
+    public void receiveDmgFromSiege(){
+        assertTrue(TestUtils.receiveDamageFrom(castle, siege, 2.0));
+    }
 
     @Test
-    public void notRepairedByMonk(){
-        robin_hood.attack(castle);
-        int currentLife = castle.currentLife();
-        monk.attack(castle);
-        assertTrue(castle.currentLife() == currentLife);
+    public void receiveDmgFromVillager(){
+        assertTrue(TestUtils.healedRepairedBy(villager, infantry, castle,0.3));
+    }
+
+    @Test
+    public void healedByMonk(){
+        assertTrue(TestUtils.hitpointsRemainsEqual(castle, monk, siege));
+    }
+
+    @Test
+    public void receiveDmgFromCastle(){
+        assertTrue(TestUtils.receiveDamageFrom(castle, castleEnemy, 0.1));
     }
 }
