@@ -15,4 +15,11 @@ public class TestUtils {
 		repairOrHeal.attack(attackable);
 		return attackable.currentLife() == currentLife + (int)(repairOrHeal.attackPts() * multiplier);
 	}
+
+	public static boolean hitpointsRemainsEqual(Attackable attackable, Attacker healer, Attacker enemy){
+		enemy.attack(attackable);
+		int currentLife = attackable.currentLife();
+		healer.attack(attackable);
+		return attackable.currentLife() == currentLife;
+	}
 }
