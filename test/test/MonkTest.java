@@ -16,21 +16,6 @@ public class MonkTest {
     private Attacker villager;
 
 
-    public static void revive(Attacker reviver, Attacker dead){
-        assertTrue(!dead.isAlive());
-        reviver.attack(dead);
-        assertTrue(!dead.isAlive());
-    }
-
-
-    public static void instaDeathAndNotReviving(Attacker attacker, Attacker resurrecter, Attacker monk){
-        int currentLife = monk.currentLife();
-        assertTrue(currentLife > 30 && attacker.attackPts() < 12);
-        attacker.attack(monk);
-        revive(resurrecter, monk);
-    }
-
-
     @Before 
     public void setUp(){
         archer = new ArcherUnit(50, 10);

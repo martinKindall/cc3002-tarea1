@@ -55,7 +55,7 @@ public class InfantryTest {
 
     @Test
     public void healedByMonk(){
-        assertTrue(TestUtils.healedRepairedBy(monk, infantry, infantry, 0.5));
+        assertTrue(TestUtils.healedRepairedBy(monk, infantryEnemy, infantry, 0.5));
     }
 
     @Test
