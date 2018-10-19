@@ -26,4 +26,12 @@ public class VillagerTest {
         villager.attack(barracks);
         assertTrue(currentLife + (int)(villager.attackPts() * 0.7) == barracks.currentLife());
     }
+
+
+    @Test
+    public void attackArcher(){
+        int currentLife = archer.currentLife();
+        villager.attack(archer);
+        assertTrue(currentLife - (int)(villager.attackPts() * 1.0) == archer.currentLife());
+    }
 }
