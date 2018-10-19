@@ -38,4 +38,13 @@ public class CastleTest {
         villager.attack(castle);
         assertTrue(castle.currentLife() == currentLife + (int)(villager.attackPts() * 0.3));
     }
+
+
+    @Test
+    public void notRepairedByMonk(){
+        robin_hood.attack(castle);
+        int currentLife = castle.currentLife();
+        monk.attack(castle);
+        assertTrue(castle.currentLife() == currentLife);
+    }
 }
