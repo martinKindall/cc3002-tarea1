@@ -5,4 +5,5 @@ public interface Attackable {
     public int currentLife();
     public void receiveDmgFromArcher(Archer archer);
     public void receiveDmgFromMonk(Monk monk);
+    public void receiveDmgFromVillager(Villager villager);
 }

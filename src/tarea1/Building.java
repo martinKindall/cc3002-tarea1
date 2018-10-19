@@ -8,4 +8,11 @@ public abstract class Building extends AttackableEntity {
 
     @Override
     public void receiveDmgFromMonk(Monk monk) {}
+
+    @Override
+    public void receiveDmgFromVillager(Villager villager) {
+        if (super.isAlive()) {
+            super.increaseHitpoints((int) (villager.attackPts() * 0.7), 1);
+        }
+    }
 }

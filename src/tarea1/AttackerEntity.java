@@ -13,7 +13,7 @@ public abstract class AttackerEntity extends AttackableEntity implements Attacke
         return varAttackPts;
     }
 
-    abstract void myAttack(Attackable attackable);
+    protected abstract void myAttack(Attackable attackable);
 
     @Override
     public void attack(Attackable attackable){

@@ -1,10 +1,7 @@
 package test;
 
 import org.junit.*;
-import tarea1.Archer;
-import tarea1.Attackable;
-import tarea1.Attacker;
-import tarea1.Barracks;
+import tarea1.*;
 
 import static org.junit.Assert.*;
 

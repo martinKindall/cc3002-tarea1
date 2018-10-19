@@ -14,4 +14,9 @@ public class Monk extends Unit {
     public void receiveDmgFromArcher(Archer archer) {
         super.die();
     }
+
+    @Override
+    public void receiveDmgFromVillager(Villager villager) {
+
+    }
 }

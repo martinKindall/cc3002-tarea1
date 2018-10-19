@@ -15,4 +15,9 @@ public class Archer extends Unit {
     public void receiveDmgFromArcher(Archer archer) {
         super.reduceHitpoints((int)(archer.attackPts() * 1.2));
     }
+
+    @Override
+    public void receiveDmgFromVillager(Villager villager) {
+        super.reduceHitpoints((int)(villager.attackPts() * 1.0));
+    }
 }
