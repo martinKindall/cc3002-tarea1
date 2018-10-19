@@ -11,6 +11,23 @@ public class MonkTest {
     private Attacker archerEnemy;
     private Attacker monk;
     private Attacker resurrecter;
+    private Attacker castle;
+    private Attacker siege;
+
+
+    public static void revive(Attacker reviver, Attacker dead){
+        assertTrue(!dead.isAlive());
+        reviver.attack(dead);
+        assertTrue(!dead.isAlive());
+    }
+
+
+    public static void instaDeathAndNotReviving(Attacker attacker, Attacker resurrecter, Attacker monk){
+        int currentLife = monk.currentLife();
+        assertTrue(currentLife > 30 && attacker.attackPts() < 12);
+        attacker.attack(monk);
+        revive(resurrecter, monk);
+    }
 
 
     @Before 
@@ -20,6 +37,8 @@ public class MonkTest {
     	archerEnemy = new Archer(50, 10);
     	monk = new Monk(50, 10);
         resurrecter = new Monk(50, 10);
+        castle = new Castle(100, 10);
+        siege = new Siege(100, 10);
     }
 
 
@@ -42,14 +61,18 @@ public class MonkTest {
 
 
     @Test
-    public void instaDeathAndNotReviving(){
-        int currentLife = monk.currentLife();
-        assertTrue(currentLife > 30 && archerEnemy.attackPts() < 12);
-        archerEnemy.attack(monk);
-        assertTrue(!monk.isAlive());
+    public void instaDeathAndNotRevivingByArcher(){
+        instaDeathAndNotReviving(archerEnemy, resurrecter, monk);
+    }
 
-        resurrecter.attack(monk);
-        assertTrue(!monk.isAlive());
+    @Test
+    public void instaDeathAndNotRevivingByCastle(){
+        instaDeathAndNotReviving(castle, resurrecter, monk);
+    }
+
+    @Test
+    public void instaDeathAndNotRevivingBySiege(){
+        instaDeathAndNotReviving(siege, resurrecter, monk);
     }
 
 
