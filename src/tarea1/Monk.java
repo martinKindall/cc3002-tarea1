@@ -6,7 +6,7 @@ public class Monk extends Unit {
     }
 
     @Override
-    public void attack(Attackable attackable){
+    public void myAttack(Attackable attackable){
         attackable.receiveDmgFromMonk(this);
     }
 

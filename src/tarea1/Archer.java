@@ -7,7 +7,7 @@ public class Archer extends Unit {
     }
 
     @Override
-    public void attack(Attackable attackable){
+    public void myAttack(Attackable attackable){
         attackable.receiveDmgFromArcher(this);
     }
 

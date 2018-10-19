@@ -12,4 +12,13 @@ public abstract class AttackerEntity extends AttackableEntity implements Attacke
     public int attackPts(){
         return varAttackPts;
     }
+
+    abstract void myAttack(Attackable attackable);
+
+    @Override
+    public void attack(Attackable attackable){
+        if (super.isAlive()){
+            myAttack(attackable);
+        }
+    }
 }

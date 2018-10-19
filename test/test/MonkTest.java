@@ -51,4 +51,18 @@ public class MonkTest {
         resurrecter.attack(monk);
         assertTrue(!monk.isAlive());
     }
+
+
+    @Test
+    public void notHealingAfterDeath(){
+        int currentLife = monk.currentLife();
+        assertTrue(currentLife > 30 && archerEnemy.attackPts() < 12);
+        archerEnemy.attack(monk);
+        assertTrue(!monk.isAlive());
+
+        archerEnemy.attack(archerAlly);
+        currentLife = archerAlly.currentLife();
+        monk.attack(archerAlly);
+        assertTrue(archerAlly.currentLife() == currentLife);
+    }
 }
