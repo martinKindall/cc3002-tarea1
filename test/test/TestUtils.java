@@ -22,4 +22,9 @@ public class TestUtils {
 		healer.attack(attackable);
 		return attackable.currentLife() == currentLife;
 	}
+
+	public static boolean receiveDamageFromAndDie(Attackable attackable, Attacker attacker, double multiplier){
+		receiveDamageFrom(attackable, attacker, multiplier);
+		return !attackable.isAlive();
+	}
 }
