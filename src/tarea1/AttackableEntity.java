@@ -3,15 +3,18 @@ package tarea1;
 public abstract class AttackableEntity implements Attackable{
     private int maxHitpoints;
     protected int hitpoints;
+    protected State state;
 
     public AttackableEntity(){
         hitpoints = 200;
         maxHitpoints = hitpoints;
+        state = new Alive();
     }
 
     public AttackableEntity(int hitpoints){
         this.hitpoints = hitpoints;
         this.maxHitpoints = hitpoints;
+        state = new Alive();
     }
 
     protected void reduceHitpoints(int hitpoints){
@@ -19,25 +22,28 @@ public abstract class AttackableEntity implements Attackable{
 
         if (this.hitpoints < 0){
             this.hitpoints = 0;
+            this.die();
         }
     }
 
     protected void increaseHitpoints(int hitpoints, int multiplier){
-        if (isAlive()){
-            this.hitpoints += hitpoints;
+        state.increaseHitpoints(this, hitpoints, multiplier);
+    }
 
-            if (this.hitpoints > multiplier*this.maxHitpoints){
-                this.hitpoints = multiplier*this.maxHitpoints;
-            }
+    public void myIncreaseHitpoints(int hitpoints, int multiplier){
+        this.hitpoints += hitpoints;
+
+        if (this.hitpoints > multiplier*this.maxHitpoints){
+            this.hitpoints = multiplier*this.maxHitpoints;
         }
     }
 
     public boolean isAlive(){
-        return this.hitpoints > 0;
+        return this.state.isAlive();
     }
 
     protected void die(){
-        this.hitpoints = 0;
+        state = new Dead();
     }
 
     @Override
