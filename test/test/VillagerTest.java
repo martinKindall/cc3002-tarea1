@@ -9,6 +9,7 @@ public class VillagerTest {
     private Attackable barracks;
     private Attacker villager;
     private Attacker archer;
+    private Monk monk;
 
 
     @Before
@@ -16,6 +17,7 @@ public class VillagerTest {
         barracks = new Barracks(10000000);
         archer = new Archer(50, 10);
         villager = new Villager(50, 10);
+        monk = new Monk(50, 10);
     }
 
 
@@ -33,5 +35,13 @@ public class VillagerTest {
         int currentLife = archer.currentLife();
         villager.attack(archer);
         assertTrue(currentLife - (int)(villager.attackPts() * 1.0) == archer.currentLife());
+    }
+
+
+    @Test
+    public void dontHarmMonk(){
+        int currentLife = monk.currentLife();
+        villager.attack(monk);
+        assertTrue(currentLife == monk.currentLife());
     }
 }
