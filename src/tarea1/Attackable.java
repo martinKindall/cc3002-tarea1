@@ -7,4 +7,5 @@ public interface Attackable {
     public void receiveDmgFromMonk(Monk monk);
     public void receiveDmgFromVillager(Villager villager);
     public void receiveDmgFromCastle(Castle castle);
+    public void receiveDmgFromSiege(Siege siege);
 }

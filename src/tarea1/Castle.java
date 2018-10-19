@@ -24,4 +24,9 @@ public class Castle extends AttackerBuilding {
     public void receiveDmgFromCastle(Castle castle) {
         super.reduceHitpoints((int) (castle.attackPts() * 0.1));
     }
+
+    @Override
+    public void receiveDmgFromSiege(Siege siege) {
+        super.reduceHitpoints((int) (siege.attackPts() * 2.0));
+    }
 }

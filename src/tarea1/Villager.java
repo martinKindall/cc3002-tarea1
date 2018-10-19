@@ -24,4 +24,9 @@ public class Villager extends Unit {
     public void receiveDmgFromCastle(Castle castle) {
         super.reduceHitpoints((int)(castle.attackPts() * 1.2));
     }
+
+    @Override
+    public void receiveDmgFromSiege(Siege siege) {
+        super.reduceHitpoints((int) (siege.attackPts() * 1.5));
+    }
 }
